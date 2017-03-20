@@ -1,26 +1,186 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="xHM-zh-Lfx">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Flicke Photos Search App-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="PhotoVC" customModule="FlickrTask" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="KiP-Z6-Ret">
+                                <rect key="frame" x="0.0" y="64" width="414" height="44"/>
+                                <string key="placeholder">Type to search
+</string>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="112" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1Yu-j7-Nbh">
+                                <rect key="frame" x="0.0" y="128" width="414" height="608"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="112" id="ahZ-Td-Hln" customClass="SearchCell" customModule="FlickrTask" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="112"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ahZ-Td-Hln" id="0yZ-Pa-mWd">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="111"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="8" translatesAutoresizingMaskIntoConstraints="NO" id="deV-sK-1MK">
+                                                    <rect key="frame" x="16" y="13" width="91" height="86"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="91" id="CNS-3W-SM8"/>
+                                                        <constraint firstAttribute="height" constant="86" id="iM8-HC-dYG"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photo Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dTb-MW-XDK">
+                                                    <rect key="frame" x="115" y="46" width="283" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.52378328389043827" green="1" blue="0.39336909918513008" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="deV-sK-1MK" firstAttribute="centerY" secondItem="0yZ-Pa-mWd" secondAttribute="centerY" id="0Hc-DN-Qbx"/>
+                                                <constraint firstItem="dTb-MW-XDK" firstAttribute="centerY" secondItem="deV-sK-1MK" secondAttribute="centerY" id="2B6-PI-2Mg"/>
+                                                <constraint firstItem="dTb-MW-XDK" firstAttribute="leading" secondItem="deV-sK-1MK" secondAttribute="trailing" constant="8" id="UgI-0V-tpc"/>
+                                                <constraint firstItem="deV-sK-1MK" firstAttribute="leading" secondItem="0yZ-Pa-mWd" secondAttribute="leadingMargin" constant="8" id="WYG-tX-JO6"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="dTb-MW-XDK" secondAttribute="trailing" constant="8" id="znk-GU-9pq"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="PhotoTitle" destination="dTb-MW-XDK" id="pUp-0T-l0A"/>
+                                            <outlet property="photoView" destination="deV-sK-1MK" id="GtV-Zs-GDP"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="1Yu-j7-Nbh" firstAttribute="top" secondItem="KiP-Z6-Ret" secondAttribute="bottom" constant="20" id="3dr-ab-jzk"/>
+                            <constraint firstItem="KiP-Z6-Ret" firstAttribute="trailing" secondItem="1Yu-j7-Nbh" secondAttribute="trailing" id="CKJ-z7-w35"/>
+                            <constraint firstItem="1Yu-j7-Nbh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ZHf-83-Nt1"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="1Yu-j7-Nbh" secondAttribute="bottom" id="Za8-X1-MWN"/>
+                            <constraint firstItem="KiP-Z6-Ret" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="aQe-t0-FBh"/>
+                            <constraint firstAttribute="trailing" secondItem="1Yu-j7-Nbh" secondAttribute="trailing" id="sRP-vi-xuw"/>
+                            <constraint firstItem="KiP-Z6-Ret" firstAttribute="leading" secondItem="1Yu-j7-Nbh" secondAttribute="leading" id="vEZ-f6-1zm"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Flicke Photos Search App" id="Aw1-4f-nFu"/>
+                    <connections>
+                        <outlet property="photosTable" destination="1Yu-j7-Nbh" id="yOA-ca-svM"/>
+                        <outlet property="searchBar" destination="KiP-Z6-Ret" id="8Wb-Ea-zP2"/>
+                        <segue destination="DHM-HP-Ls4" kind="show" identifier="photoDetails" id="kJN-Gt-75J"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="2757.5999999999999" y="-607.64617691154433"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Ij1-6h-dM1">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xHM-zh-Lfx" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="15O-gh-u4f">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="bGp-g5-KN9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TR8-f5-9mH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1850.7246376811595" y="-607.33695652173913"/>
+        </scene>
+        <!--Photo DetailsVC-->
+        <scene sceneID="w7a-QY-D3l">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="DHM-HP-Ls4" customClass="PhotoDetailsVC" customModule="FlickrTask" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XyY-9q-xeg"/>
+                        <viewControllerLayoutGuide type="bottom" id="8XI-p8-0Ay"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4bY-vP-fhF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="112" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pOK-rv-gJg">
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="112" id="chP-UX-btg" customClass="SearchCell" customModule="FlickrTask" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="112"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="chP-UX-btg" id="bc8-3r-ifj">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="111"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="8" translatesAutoresizingMaskIntoConstraints="NO" id="RPg-6x-Auw">
+                                                    <rect key="frame" x="16" y="13" width="91" height="86"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="86" id="d7M-D1-aAM"/>
+                                                        <constraint firstAttribute="width" constant="91" id="sNE-hk-yax"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photo Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SoU-JC-ZQG">
+                                                    <rect key="frame" x="115" y="46" width="283" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.52378328389999995" green="1" blue="0.39336909920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="SoU-JC-ZQG" firstAttribute="centerY" secondItem="RPg-6x-Auw" secondAttribute="centerY" id="2cV-84-mNE"/>
+                                                <constraint firstItem="RPg-6x-Auw" firstAttribute="centerY" secondItem="bc8-3r-ifj" secondAttribute="centerY" id="PEC-xF-HM7"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="SoU-JC-ZQG" secondAttribute="trailing" constant="8" id="lFg-7i-e3c"/>
+                                                <constraint firstItem="SoU-JC-ZQG" firstAttribute="leading" secondItem="RPg-6x-Auw" secondAttribute="trailing" constant="8" id="rXf-pc-VEp"/>
+                                                <constraint firstItem="RPg-6x-Auw" firstAttribute="leading" secondItem="bc8-3r-ifj" secondAttribute="leadingMargin" constant="8" id="thI-IO-fNp"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="PhotoTitle" destination="SoU-JC-ZQG" id="ZrJ-rb-4U7"/>
+                                            <outlet property="photoView" destination="RPg-6x-Auw" id="GVh-DE-005"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="8XI-p8-0Ay" firstAttribute="top" secondItem="pOK-rv-gJg" secondAttribute="bottom" id="LfT-F7-pNX"/>
+                            <constraint firstAttribute="trailing" secondItem="pOK-rv-gJg" secondAttribute="trailing" id="Oq5-kr-rQq"/>
+                            <constraint firstItem="pOK-rv-gJg" firstAttribute="leading" secondItem="4bY-vP-fhF" secondAttribute="leading" id="q2n-pH-1LP"/>
+                            <constraint firstItem="pOK-rv-gJg" firstAttribute="top" secondItem="XyY-9q-xeg" secondAttribute="bottom" id="wMN-tR-I4K"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Z7b-h6-402"/>
+                    <connections>
+                        <outlet property="tableView" destination="pOK-rv-gJg" id="8Fi-Rl-PtB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYO-UF-hCf" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3439" y="-608"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="8" width="364" height="138"/>
+    </resources>
 </document>
